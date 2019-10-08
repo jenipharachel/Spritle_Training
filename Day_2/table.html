@@ -1,0 +1,64 @@
+<!DOCTYPE HTML> 
+<html> 
+
+<head> 
+<title>Table</title>
+</head> 
+
+<body style = "text-align:center;" id = "body"> 
+	<table cellpadding="2" cellspacing="2" border="2" bgcolor="#dfdfdf" width="40%" align="center">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th width="20%">Name</th>
+                <th width="12%">Age</th>
+                <th width="30%">Address</th>
+            </tr>
+        </thead>
+        <tbody id="tableData"></tbody>
+    </table>
+    <script type="text/javascript">
+        var users = [
+            { id: 1, name: 'user 1', age: 25, address: [
+            { no: 250, street_name: '68 th street', city: 'Chennai' },
+            { no: 270, street_name: '78 th street', city: 'Chennai' }
+            ]
+        },
+            { id: 2, name: 'user 2', age: 22, address: [
+            { no: 10, street_name: '22 th street', city: 'Tirunelveli' },
+            { no: 11, street_name: '43 th street', city: 'Tirunelveli' }
+            ]
+        },
+            { id: 3, name: 'user 3', age: 27, address: [
+            { no: 350, street_name: '154 th street', city: 'Coimbatore' },
+            { no: 320, street_name: '175 th street', city: 'Coimbatore' }
+            ]
+        },
+            { id: 4, name: 'user 4', age: 28, address: [
+            { no: 356, street_name: '650 th street', city: 'Madurai' },
+            { no: 452, street_name: '750 th street', city: 'Madurai' }
+            ]
+        },
+            { id: 5, name: 'user 5', age: 30, address: [
+            { no: 145, street_name: '657 th street', city: 'chennai' },
+            { no: 145, street_name: '965 th street', city: 'chennai' }
+            ]
+        }
+        ];
+
+            var k = '<tbody>'
+            for(i = 0;i < users.length; i++){
+                k+= '<tr>';
+                k+= '<td>' + users[i].id + '</td>';
+                k+= '<td>' + users[i].name + '</td>';
+                k+= '<td>' + users[i].age + '</td>';
+                k+= '<td>' + users[i].address[0].no + ", " + users[i].address[0].street_name + ", "+ users[i].address[0].city + "</br>" + users[i].address[1].no + ", " + users[i].address[1].street_name + ", "+ users[i].address[1].city + '</td>';
+                k+= '</tr>';
+            }
+            k+='</tbody>';
+            document.getElementById('tableData').innerHTML = k;
+    </script>
+    
+</body> 
+
+</html> 
