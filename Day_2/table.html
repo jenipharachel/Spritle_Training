@@ -73,18 +73,31 @@
         //     }
         // }
         // ];
-
+            function table() {
             var k = '<tbody>'
             for(i = 0;i < users.length; i++){
                 k+= '<tr>';
-                k+= '<td>' + users[i].id + '</td>';
+                k+= '<td>' + `${users[i].id}` + '</td>';
                 k+= '<td>' + users[i].name + '</td>';
                 k+= '<td>' + users[i].age + '</td>';
                 k+= '<td>' + users[i].address[0].no + ", " + users[i].address[0].street_name + ", "+ users[i].address[0].city + "</br>" + users[i].address[1].no + ", " + users[i].address[1].street_name + ", "+ users[i].address[1].city + '</td>';
                 k+= '</tr>';
             }
             k+='</tbody>';
-            document.getElementById('tableData').innerHTML = k;
+            return k;
+            // <tbody>
+            //     users.map(user =>{
+            //         <tr>
+            //             <td>`${user.id}`</td>
+            //             <td>`${user.name}`</td>
+            //             <td>`${user.age}`</td>
+            //             <td>`${user.address}`</td>
+            //         </tr>
+            //     })
+            // </tbody>
+        }
+            document.getElementById('tableData').innerHTML = table();
+
             // for(i = 0;i < users.length; i++){
             //     var row = document.createElement('tr')
             //     for(key in users[i]){

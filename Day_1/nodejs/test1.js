@@ -12,13 +12,15 @@ http
         res.write("<h1>Welcome to my training site</h1>");
         return res.end();
       }
+      if (filename == "./help") {
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.write("<h1>You are at the help page</h1>");
+        return res.end();
+      }
       if (err) {
         res.writeHead(404, { "Content-Type": "text/html" });
         return res.end("404 Not Found");
       }
-      res.writeHead(200, { "Content-Type": "text/html" });
-      res.write(data);
-      return res.end();
     });
   })
   .listen(8084);

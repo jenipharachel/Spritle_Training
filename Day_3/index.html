@@ -45,7 +45,6 @@
       function AddData() {
         var rowCount = document.getElementsByTagName("tr").length;
         var sno = rowCount;
-        var rows = "";
         const user = {
           rowid: rowCount,
           name: document.getElementById("name").value,
@@ -55,6 +54,7 @@
         };
         users.push(user);
         console.log(users);
+        var rows = "";
         rows +=
           "<tr><td>" +
           sno +
