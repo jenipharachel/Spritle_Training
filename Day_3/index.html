@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Table</title>
+  </head>
+
+  <body style="text-align:center;" id="body">
+    <h2>Person Information Form</h2>
+    <div id="data">
+      <form id="person">
+        Name: <input id="name" name="name" type="text" /> Phone Number:
+        <input id="phone" name="Phone Number" type="number" /> Email:
+        <input id="email" name="email" type="email" /> Age:
+        <input id="age" name="age" type="number" />
+        <input id="button" type="button" value=" Add " onclick="AddData()" />
+      </form>
+    </div>
+
+    <h3>Data Table</h3>
+    <div id="tab">
+      <table
+        id="list"
+        border="1"
+        cellspacing="0px"
+        cellpadding="20px"
+        text-align="center"
+      >
+        <thead>
+          <tr>
+            <td>S No</td>
+            <td width="20%">Name</td>
+            <td width="30%">Phone Number</td>
+            <td width="25%">Email</td>
+            <td width="12%">Age</td>
+          </tr>
+        </thead>
+
+        <tbody></tbody>
+      </table>
+      <input id="button" type="button" value=" Sort " onclick="Sort()" />
+      <input id="button" type="button" value=" Delete " onclick="Delete()" />
+    </div>
+    <script>
+      var users = [];
+      function AddData() {
+        var rowCount = document.getElementsByTagName("tr").length;
+        var sno = rowCount;
+        var rows = "";
+        const user = {
+          rowid: rowCount,
+          name: document.getElementById("name").value,
+          phone: document.getElementById("phone").value,
+          email: document.getElementById("email").value,
+          age: document.getElementById("age").value
+        };
+        users.push(user);
+        console.log(users);
+        rows +=
+          "<tr><td>" +
+          sno +
+          "</td><td>" +
+          user.name +
+          "</td><td>" +
+          user.phone +
+          "</td><td>" +
+          user.email +
+          "</td><td>" +
+          user.age +
+          "</td></tr>";
+        var tbody = document.querySelector("#list tbody");
+        var tr = document.createElement("tr");
+        tr.innerHTML = rows;
+        tbody.appendChild(tr);
+        document.getElementById("person").reset();
+      }
+
+      function Sort() {
+        users.sort(function compare(a, b) {
+          if (a.age < b.age) {
+            return -1;
+          }
+          if (a.age > b.age) {
+            return 1;
+          }
+          return 0;
+        });
+        console.log(users);
+      }
+      function Delete() {
+        document.getElementById("list").deleteRow(1);
+      }
+    </script>
+  </body>
+</html>
