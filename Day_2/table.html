@@ -46,6 +46,34 @@
         }
         ];
 
+        // var users = [
+        //     { id: 1, name: 'user 1', age: 25, address: {
+        //     home_add: { no: 250, street_name: '68 th street', city: 'Chennai' },
+        //     work_add: { no: 270, street_name: '78 th street', city: 'Chennai' }
+        //     }
+        // },
+        //     { id: 2, name: 'user 2', age: 22, address: {
+        //     home_add: { no: 10, street_name: '22 th street', city: 'Tirunelveli' },
+        //     work_add: { no: 11, street_name: '43 th street', city: 'Tirunelveli' }
+        //     }
+        // },
+        //     { id: 3, name: 'user 3', age: 27, address: {
+        //     home_add: { no: 350, street_name: '154 th street', city: 'Coimbatore' },
+        //     work_add: { no: 320, street_name: '175 th street', city: 'Coimbatore' }
+        //     }
+        // },
+        //     { id: 4, name: 'user 4', age: 28, address: {
+        //     home_add: { no: 356, street_name: '650 th street', city: 'Madurai' },
+        //     work_add: { no: 452, street_name: '750 th street', city: 'Madurai' }
+        //     }
+        // },
+        //     { id: 5, name: 'user 5', age: 30, address: {
+        //     home_add: { no: 145, street_name: '657 th street', city: 'chennai' },
+        //     work_add: { no: 145, street_name: '965 th street', city: 'chennai' }
+        //     }
+        // }
+        // ];
+
             var k = '<tbody>'
             for(i = 0;i < users.length; i++){
                 k+= '<tr>';
@@ -57,6 +85,23 @@
             }
             k+='</tbody>';
             document.getElementById('tableData').innerHTML = k;
+            // for(i = 0;i < users.length; i++){
+            //     var row = document.createElement('tr')
+            //     for(key in users[i]){
+            //         var col = document.createElement('td')
+            //         if(key === 'address'){
+            //             for( add_key in users[i][key]){
+            //                 console.log(add_key)
+            //                 col.innerText = users[i][key][0][add_key]
+            //             }
+            //         }
+            //         else{
+            //             col.innerText = users[i][key]
+            //         }
+            //         row.appendChild(col)
+            //     }
+            //     document.getElementById('tableData').appendChild(row)
+            // }
     </script>
     
 </body> 
