@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Table</title>
+    <link rel="stylesheet" type="text/css" href="./index.css" />
+  </head>
+
+  <body id="body">
+    <h3>Ticket Submission</h3>
+    <div>
+      <label for="ticket">Info:</label>
+      <textarea id="ticket" name="ticket" rows="5" cols="33"> </textarea>
+      <button
+        type="submit"
+        onclick="segregateData(document.getElementById('ticket').value)"
+      >
+        Submit
+      </button>
+    </div>
+
+    <h3>Ticket Info</h3>
+    <div id="tab">
+      <table
+        id="list"
+        border="1"
+        cellspacing="0px"
+        cellpadding="20px"
+        text-align="center"
+      >
+        <thead>
+          <tr>
+            <td width="20%">Raised By</td>
+            <td width="30%">Ticket ID</td>
+            <td width="25%">Other Tags</td>
+          </tr>
+        </thead>
+
+        <tbody></tbody>
+      </table>
+    <script>
+        var char = [];
+      function segregateData(data) {
+        var text = data;  //entire text
+        var words = data.split(".").join("").split(" "); //words of str in array
+        var hTags = hash(words); //array with #words
+        console.log(hTags);
+        var aTag = at(words); //array with @words
+        console.log(aTag);
+        var numH = numTag(hTags);
+        console.log(numH);
+      }
+      function hash(data) {
+        var words = data;
+        var hashWords = [];
+        words.forEach(element => {
+          if (element.indexOf("#") == 0) {
+            hashWords.push(element);
+          }
+        });
+        return hashWords;
+      }
+      function at(data) {
+        var words = data;
+        var atWords = [];
+        words.forEach(element => {
+          if (element.indexOf("@") == 0) {
+            atWords.push(element);
+          }
+        });
+        return atWords;
+      }
+      function numTag(data) {
+        var words = data;
+        var num = 0;
+        var numWords = words.join("").split("#");
+        numWords.shift();
+        numWords.forEach(element => {
+            if(isNaN(element) == false) {
+                num = element;
+            }
+            else{
+                char.push(element);
+            }
+        })
+        return num;
+      }
+    </script>
+  </body>
+</html>
+.split(regExp)
