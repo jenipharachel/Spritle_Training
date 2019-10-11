@@ -1,0 +1,4 @@
+- Create 2 Div and display 1st div in the left and 2nd one on the right column
+- Consume the JSON
+- Add title to 1st div as "Active Members" and to 2nd div as "Inactive Members"
+- Display the all the active members on the 1st column and inactive members on the 2nd column

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <body style="text-align: center;">
+    ​
+    <h2>List of Active and Inactive users</h2>
+    ​
+    <div style="display:inline-block;">
+      <div id="left" style="border: 1px solid; float: left; ">
+        <h1>Active Users</h1>
+      </div>
+      <div id="right" style="border: 1px solid; float:right;">
+        <h1>Inactive Users</h1>
+      </div>
+    </div>
+    ​
+    <script>
+      var data = [
+        {
+          first_name: "Sam",
+          last_name: "Clarkson",
+          active: true
+        },
+        {
+          first_name: "Jan",
+          last_name: "Bell",
+          active: false
+        },
+        {
+          first_name: "Charles",
+          last_name: "Marshall",
+          active: true
+        },
+        {
+          first_name: "Stephanie",
+          last_name: "Peters",
+          active: false
+        },
+        {
+          first_name: "Nicholas",
+          last_name: "Quinn",
+          active: false
+        },
+        {
+          first_name: "Piers",
+          last_name: "Gibson",
+          active: true
+        },
+        {
+          first_name: "Sophie",
+          last_name: "Scott",
+          active: false
+        },
+        {
+          first_name: "Stephanie",
+          last_name: "Kerr",
+          active: true
+        },
+        {
+          first_name: "Stephen",
+          last_name: "Morgan",
+          active: false
+        },
+        {
+          first_name: "Simon",
+          last_name: "Bailey",
+          active: true
+        },
+        {
+          first_name: "Harry",
+          last_name: "Butler",
+          active: false
+        },
+        {
+          first_name: "Diana",
+          last_name: "Hughes",
+          active: true
+        },
+        {
+          first_name: "Julian",
+          last_name: "Wallace",
+          active: true
+        },
+        {
+          first_name: "Joseph",
+          last_name: "Ferguson",
+          active: true
+        },
+        {
+          first_name: "Justin",
+          last_name: "Miller",
+          active: false
+        },
+        {
+          first_name: "Oliver",
+          last_name: "Gill",
+          active: false
+        },
+        {
+          first_name: "Adam",
+          last_name: "Dickens",
+          active: true
+        },
+        {
+          first_name: "Molly",
+          last_name: "Avery",
+          active: true
+        },
+        {
+          first_name: "Jan",
+          last_name: "Underwood",
+          active: true
+        },
+        {
+          first_name: "Tracey",
+          last_name: "Terry",
+          active: false
+        }
+      ];
+      var mydata = JSON.stringify(data);
+      var details = JSON.parse(mydata);
+      var sortedData = Sort(details);
+      sortedData.forEach(item => {
+        if (item["active"] == true) {
+          document.getElementById("left").innerHTML +=
+            item["first_name"] + " " + item["last_name"] + "</br>";
+        } else {
+          document.getElementById("right").innerHTML +=
+            item["first_name"] + " " + item["last_name"] + "</br>";
+        }
+      });
+
+      function Sort(data) {
+        var inputArray = data;
+        var done = false;
+        while (!done) {
+          done = true;
+          for (var i = 1; i < inputArray.length; i += 1) {
+            if (
+              inputArray[i - 1]["first_name"].charCodeAt(0) >
+              inputArray[i]["first_name"].charCodeAt(0)
+            ) {
+              done = false;
+              var tmp = inputArray[i - 1];
+              inputArray[i - 1] = inputArray[i];
+              inputArray[i] = tmp;
+            }
+            if (
+              inputArray[i - 1]["first_name"].charCodeAt(0) ==
+              inputArray[i]["first_name"].charCodeAt(0)
+            ) {
+              if (
+                inputArray[i - 1]["first_name"].charCodeAt(1) >
+                inputArray[i]["first_name"].charCodeAt(1)
+              ) {
+                done = false;
+                var tmp = inputArray[i - 1];
+                inputArray[i - 1] = inputArray[i];
+                inputArray[i] = tmp;
+              }
+            }
+          }
+        }
+        return inputArray;
+      }
+    </script>
+    ​
+  </body>
+</html>
