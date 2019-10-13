@@ -74,15 +74,27 @@
       }
 
       function Sort() {
-        users.sort(function compare(a, b) {
-          if (a.age < b.age) {
-            return -1;
+        var done = false;
+        while (!done) {
+          done = true;
+          for (var i = 1; i < users.length; i += 1) {
+            if (users[i - 1]["age"] > users[i]["age"]) {
+              done = false;
+              var tmp = users[i - 1];
+              users[i - 1] = users[i];
+              users[i] = tmp;
+            }
           }
-          if (a.age > b.age) {
-            return 1;
-          }
-          return 0;
-        });
+        }
+        // users.sort(function compare(a, b) {
+        //   if (a.age < b.age) {
+        //     return -1;
+        //   }
+        //   if (a.age > b.age) {
+        //     return 1;
+        //   }
+        //   return 0;
+        // });
         console.log(users);
         var tableContent = document.getElementById("table_content");
         tableContent.innerHTML = "";
