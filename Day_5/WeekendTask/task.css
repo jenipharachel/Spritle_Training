@@ -1,10 +1,11 @@
-/* #myname {
-  display: none;
+#myname {
+  margin-left: -1000px;
 }
 
 #tabledata {
-  display: none;
-} */
+  margin-left: -1000px;
+}
+
 #tables {
   display: -webkit-inline-box;
 }
