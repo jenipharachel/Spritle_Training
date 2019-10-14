@@ -27,6 +27,6 @@ table {
 #box {
   height: 20px;
   width: 20px;
-  background-color: red;
+  /* background-color: red; */
   float: right;
 }

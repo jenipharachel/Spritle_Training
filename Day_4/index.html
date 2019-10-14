@@ -39,37 +39,70 @@
         <tbody></tbody>
       </table>
     <script>
-        var char = [];
         var details = []; 
 
       function segregateData(data) {
         var text = data;  //entire text
         var words = data.split(".").join("").split(" "); //words of str in array
-        var hTags = hash(words); //array with #words
-        console.log(hTags);
+        var wordsWithHash = hash(words); //array with #words
+        console.log(wordsWithHash);
 
         const detail = {
             assignedTo: at(words),
-            tags: numTag(hTags)
+            tags: numTag(wordsWithHash) //obj with num hash and char hash
         }
-        var rows = "";
-        rows +=
-          "<tr><td>" +
-          detail.assignedTo +
-          "</td><td>" +
-          detail.tags.num +
-          "</td><td>" +
-          detail["tags"]["chars"] + "<div id='box'></div>" +
-          "</td></tr>";
-        var tbody = document.querySelector("#list tbody");
-        var tr = document.createElement("tr");
-        tr.innerHTML = rows;
-        tbody.appendChild(tr);
-        document.getElementById("form").reset();
+
+        if(details.length == 0) {
+          details.push(detail);
+            var rows = "";
+            rows +=
+              "<tr><td>" +
+              detail.assignedTo +
+              "</td><td>" +
+              detail.tags.num +
+              "</td><td>" +
+              detail["tags"]["chars"] + redOrGreen(detail["tags"]["chars"], 'critical') +
+              "</td></tr>";
+            
+            var tbody = document.querySelector("#list tbody");
+            var tr = document.createElement("tr");
+            tr.innerHTML = rows;
+            tbody.appendChild(tr);
+            document.getElementById("form").reset();
 
         console.log(detail);
+
+        } else {
+          details.forEach((item) => {
+            if (item.tags.num == detail.tags.num) {
+              console.log(item.tags.num, detail.tags.num)
+              document.getElementById("form").reset();  
+            }
+            else {
+              details.push(detail);
+              var rows = "";
+              rows +=
+                "<tr><td>" +
+                detail.assignedTo +
+                "</td><td>" +
+                detail.tags.num +
+                "</td><td>" +
+                  detail["tags"]["chars"] + redOrGreen(detail["tags"]["chars"], 'critical') +
+                "</td></tr>";
+              
+              var tbody = document.querySelector("#list tbody");
+              var tr = document.createElement("tr");
+              tr.innerHTML = rows;
+              tbody.appendChild(tr);
+              document.getElementById("form").reset();
+            }
+          })
+        }
       }
 
+      function redOrGreen(arrayData, item) {
+       return arrayData == item ?  "<div id='box' style='background-color:red;'></div>" : "<div id='box' style='background-color:green;'></div>";
+      }
       function hash(data) {
         var words = data;
         var hashWords = [];
@@ -83,16 +116,16 @@
 
       function at(data) {
         var words = data;
-        var atWords = [];
+        var wordsWithAt = [];
 
         words.forEach(element => {
           if (element.indexOf("@") == 0) {
-            atWords = element.split("").splice(1).join("");
+            wordsWithAt = element.split("").splice(1).join("");
           }
         });
 
-        console.log(atWords);
-        return atWords;
+        console.log(wordsWithAt);
+        return wordsWithAt;
       }
       
       function numTag(data) {
@@ -101,18 +134,23 @@
             num: null,
             chars: []
         };
-        var numWords = words.join("").split("#");
-        numWords.shift();
-        numWords.forEach(element => {
+        var wordsWithOut_Hash = words.join("").split("#");
+        console.log(wordsWithOut_Hash);
+        wordsWithOut_Hash.shift();
+        wordsWithOut_Hash.forEach(element => {
             if(isNaN(element) == false) {
-                tags.num = element;
+              tags.num = element;
+                console.log(tags.num);
+                console.log(details);
             }
             else{
                 tags["chars"].push(element);
             }
         })
+        console.log("tags obj",tags)
         return tags;
       }
     </script>
   </body>
 </html>
+
