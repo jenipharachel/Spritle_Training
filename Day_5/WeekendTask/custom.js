@@ -34,7 +34,4 @@ $(document).ready(function() {
   $("h1").click(function() {
     $("*").css({ "background-color": "orange" });
   });
-  $("h1").click(function() {
-    $("*").css({ "background-color": "orange" });
-  });
 });
