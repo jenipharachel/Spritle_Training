@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Form Validation</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+      function validate() {
+        var emailID = $("input[name='EMail']").val();
+        atpos = emailID.indexOf("@");
+        dotpos = emailID.lastIndexOf(".");
+        console.log("atpos", atpos);
+        console.log("dotpos", dotpos);
+        if (atpos < 1 || dotpos - atpos < 2) {
+          alert("Please enter correct email ID");
+          document.myForm.EMail.focus();
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <form
+      action="/cgi-bin/test.cgi"
+      name="myForm"
+      onsubmit="return(validate());"
+    >
+      EMail
+      <input type="text" name="EMail" />
+
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
