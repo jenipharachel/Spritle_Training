@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Plugin</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="dist/jquery.inputmask.bundle.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(":input").inputmask();
+      });
+    </script>
+  </head>
+  <body>
+    <input data-inputmask="'alias': 'date'" />
+    <input data-inputmask="'mask': '9', 'repeat': 10, 'greedy' : false" />
+    <input data-inputmask="'mask': '99-9999999'" />
+  </body>
+</html>

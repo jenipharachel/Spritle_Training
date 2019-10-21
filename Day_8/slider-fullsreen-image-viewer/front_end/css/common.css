@@ -1,0 +1,40 @@
+div#frame {width:100%; min-width:320px; margin:0 auto;}
+@media only screen and (min-width:1200px)
+{
+div#frame {width:1200px;}
+}
+/* GALLERY */
+div.gallery {width:100%; min-width:320px; float:left; background:#708090;}
+div.gallery > div {width:50%; margin:0 0 1px; float:left; background:#363636; border-right:1px solid #708090; box-sizing:border-box;}
+div.gallery > div > h1 {color:#ffffff; font:0.8em/30px arial, sans-serif; text-align:center; cursor:default;}
+div.gallery > div > a > img {max-width:160px; height:120px; margin:0 auto 20px; padding:0 5px; box-sizing:border-box; display:block;}
+div.gallery > div.eol {border:0;}
+div#background {width:100%; height:100%; position:fixed; top:0; left:0; background:#000000; cursor:default; z-index:9999;}
+div#background > div.content {width:inherit; height:50px; position:absolute; color:#ffffff; background:#1d1d1d; font:0.9em/50px arial, sans-serif; text-align:center; box-sizing:border-box; z-index:10000; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;}
+div#background > div.content.top {top:0; border-bottom:1px solid #708090;}
+div#background > div.content.bottom {bottom:0; border-top:1px solid #708090;}
+div#background > div.close {width:50px; height:50px; position:absolute; top:0; right:0; background:url('../images/gallery/close.gif'); cursor:pointer; z-index:10000;}
+div#background > div.loading {width:50px; height:50px; position:fixed; background:#ffffff url('../images/gallery/loading.gif') no-repeat 50% 50%; z-index:10000;}
+div#background > div.next, div#background > div.previous {width:50%; height:100%; position:absolute; top:0; display:block; cursor:pointer;}
+div#background > div.next {right:0; background:url('../images/gallery/next.gif') no-repeat 100% 50%;}
+div#background > div.previous {left:0; background:url('../images/gallery/previous.gif') no-repeat 0 50%;}
+div#foreground {position:fixed; border:1px solid #708090; box-sizing:border-box; overflow:hidden; display:none; cursor:default; z-index:10000;}
+div#foreground > div.image {position:absolute; top:0; left:0;}
+@media only screen and (min-width:768px)
+{
+div.gallery > div {width:33.33%;}
+div.gallery > div > h1 {font-size:0.9em;}
+div#background > div.content {font-size:1.1em;}
+}
+@media only screen and (min-width:1024px)
+{
+div.gallery > div {width:25%;}
+div.gallery > div > h1 {font-size:1em;}
+div#background > div.content {font-size:1.3em;}
+}
+@media only screen and (min-width:1200px)
+{
+div.gallery > div {width:20%;}
+div.gallery > div > h1 {font-size:1.1em;}
+div#background > div.content {font-size:1.5em;}
+}
