@@ -122,27 +122,59 @@ $(document).ready(function() {
       error_contact === false &&
       error_date === false
     ) {
-      alert("Registration Successfull");
+      var name = $("#firstName")
+        .val()
+        .toLowerCase();
+      var dob = $("#date")
+        .val()
+        .split("-")
+        .reverse()
+        .join("");
+      var insuranceNumber = dob + "-" + name;
+      console.log("name", name);
+      console.log("dob", dob);
+      console.log("insuranceNumber", insuranceNumber);
+      event.preventDefault();
+
+      // var li_count = $(".nav-tabs li").length;
+      // console.log("li", li_count);
+      // var current_active = $(".nav-tabs li.active").index();
+      // console.log("current", current_active);
+
+      // if (current_active < li_count) {
+      //   $(".nav-tabs li.active")
+      //     .next("li")
+      //     .find("a")
+      //     .attr("data-toggle", "tab")
+      //     .tab("show");
+      //   // alert("Registration Successfull");
+      // } else {
+      //   alert("Last Step");
+      // }
+
+      var linkHref = $(this)
+        .parents(".tab-pane")
+        .attr("id");
+      $("#nav-tab li a").removeClass("active");
+      $("#nav-tab li")
+        .find('a[href="#' + linkHref + '"]')
+        .parent()
+        .next()
+        .find("a")
+        .tab("show")
+        .addClass("active")
+        .attr("data-toggle", "tab");
+
+      $("a.nav-link")
+        .not(".active")
+        .css("pointer-events", "none");
       return true;
     } else {
       alert("Please Fill the form Correctly");
       return false;
     }
   });
-
-  $("#inputForm").submit(function(event) {
-    var name = $("#firstName")
-      .val()
-      .toLowerCase();
-    var dob = $("#date")
-      .val()
-      .split("-")
-      .reverse()
-      .join("");
-    var insuranceNumber = dob + "-" + name;
-    console.log("name", name);
-    console.log("dob", dob);
-    console.log("insuranceNumber", insuranceNumber);
-    event.preventDefault();
-  });
 });
+//   $("#nav-tabContent form").submit(function(event) {
+
+// });

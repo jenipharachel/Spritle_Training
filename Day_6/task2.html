@@ -16,170 +16,237 @@
     />
   </head>
   <body>
-    <div class="container mt-5">
-      <form id="inputForm">
-        <div class="form-row">
-          <div class="form-group col-md-3">
-            <label for="firstName">First Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="firstName"
-              placeholder="First Name"
-              required
-            />
-          </div>
-          <div class="form-group col-md-3">
-            <label for="lastName">Last Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="lastName"
-              placeholder="Last name"
-              required
-            />
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputEmail">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="inputEmail"
-              placeholder="Email"
-              required
-            />
-          </div>
+    <div class="card">
+      <h5 class="card-header">Quick Registration</h5>
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab">
+          <li>
+            <a
+              class="nav-item nav-link active"
+              id="nav-home-tab"
+              href="#nav-home"
+              data-toggle="tab"
+              aria-controls="nav-home"
+              aria-selected="true"
+              >Basic information</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-item nav-link"
+              id="nav-insurance-tab"
+              href="#nav-insurance"
+              aria-controls="nav-insurance"
+              aria-selected="false"
+              >Insurance Details</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-item nav-link"
+              id="nav-contact-tab"
+              href="#nav-contact"
+              aria-controls="nav-contact"
+              aria-selected="false"
+              >Payment</a
+            >
+          </li>
         </div>
-        <div class="form-row">
-          <div class="form-group col-md-3">
-            <label for="preferredName">Preferred Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="preferredName"
-              placeholder="Preferred Name"
-              required
-            />
-          </div>
-          <div class="form-group col-md-3">
-            <label for="date">Date of birth</label>
-            <input type="date" class="form-control" id="date" required />
-          </div>
-          <div class="form-group col-md-6">
-            <label for="referredBy">Referred By</label>
-            <input
-              type="text"
-              class="form-control"
-              id="referredBy"
-              placeholder="Referee Name"
-              required
-            />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="gender">Gender</label>
-            <div class="form-row">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="radios"
-                  id="radios1"
-                  value="option1"
-                  checked
-                />
-                <label class="form-check-label" for="radios1">
-                  Male
-                </label>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div
+          class="tab-pane fade show active"
+          id="nav-home"
+          role="tabpanel"
+          aria-labelledby="nav-home-tab"
+        >
+          <div class="container mt-5 mb-5">
+            <form id="inputForm">
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="firstName">First Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="firstName"
+                    placeholder="First Name"
+                    required
+                  />
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="lastName">Last Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lastName"
+                    placeholder="Last name"
+                    required
+                  />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputEmail">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="inputEmail"
+                    placeholder="Email"
+                    required
+                  />
+                </div>
               </div>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="preferredName">Preferred Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="preferredName"
+                    placeholder="Preferred Name"
+                    required
+                  />
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="date">Date of birth</label>
+                  <input type="date" class="form-control" id="date" required />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="referredBy">Referred By</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="referredBy"
+                    placeholder="Referee Name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="gender">Gender</label>
+                  <div class="form-row">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="radios"
+                        id="radios1"
+                        value="option1"
+                        checked
+                      />
+                      <label class="form-check-label" for="radios1">
+                        Male
+                      </label>
+                    </div>
 
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="radios"
-                  id="radios2"
-                  value="option2"
-                />
-                <label class="form-check-label" for="radios2">
-                  Female
-                </label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="radios"
-                  id="radios3"
-                  value="option3"
-                />
-                <label class="form-check-label" for="radios3">
-                  Other
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group col-md-6">
-            <div class="form-row">
-              <label for="contactNumber">Preferred contact number</label>
-              <input
-                type="number"
-                class="form-control"
-                id="contactNumber"
-                required
-              />
-            </div>
-            <div class="form-row">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="radios"
-                  id="radios1"
-                  value="option1"
-                  checked
-                />
-                <label class="form-check-label" for="radios1">
-                  Home
-                </label>
-              </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="radios"
+                        id="radios2"
+                        value="option2"
+                      />
+                      <label class="form-check-label" for="radios2">
+                        Female
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="radios"
+                        id="radios3"
+                        value="option3"
+                      />
+                      <label class="form-check-label" for="radios3">
+                        Other
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <div class="form-row">
+                    <label for="contactNumber">Preferred contact number</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="contactNumber"
+                      required
+                    />
+                  </div>
+                  <div class="form-row">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="radios"
+                        id="radios1"
+                        value="option1"
+                        checked
+                      />
+                      <label class="form-check-label" for="radios1">
+                        Home
+                      </label>
+                    </div>
 
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="radios"
-                  id="radios2"
-                  value="option2"
-                />
-                <label class="form-check-label" for="radios2">
-                  Mobile
-                </label>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="radios"
+                        id="radios2"
+                        value="option2"
+                      />
+                      <label class="form-check-label" for="radios2">
+                        Mobile
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="radios"
+                        id="radios3"
+                        value="option3"
+                      />
+                      <label class="form-check-label" for="radios3">
+                        Work
+                      </label>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="radios"
-                  id="radios3"
-                  value="option3"
-                />
-                <label class="form-check-label" for="radios3">
-                  Work
-                </label>
+              <div>
+                <button type="submit" class="btn btn-outline-secondary">
+                  Cancel
+                </button>
+                <button type="submit" class="btn btn-success">
+                  Save & Next ->
+                </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
-        <div>
-          <button type="submit" class="btn btn-outline-secondary">
-            Cancel
-          </button>
-          <button type="submit" class="btn btn-success">Save & Next -></button>
+        <div
+          class="tab-pane fade"
+          id="nav-insurance"
+          role="tabpanel"
+          aria-labelledby="nav-insurance-tab"
+        >
+          <label for="uniqueName">Insurance Unique Name</label>
+          <input type="text" class="form-control" id="firstName" value="" />
         </div>
-      </form>
+        <div
+          class="tab-pane fade"
+          id="nav-contact"
+          role="tabpanel"
+          aria-labelledby="nav-contact-tab"
+        >
+          ...
+        </div>
+      </div>
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
