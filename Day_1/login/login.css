@@ -6,7 +6,7 @@
 body {
   margin-top: 100px;
   margin-left: 100px;
-  background-image: url(https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252_960_720.jpg);
+  background-image: url(./water-1330252_960_720.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -32,6 +32,10 @@ button {
   border-radius: 5px;
 }
 
+button:hover {
+  background-color: rgb(8, 61, 121);
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -52,4 +56,24 @@ input {
   height: 25px;
   box-shadow: 5px 5px 15px rgba(2, 8, 22, 0.3);
   margin-bottom: 20px;
+}
+
+.input-icons i {
+  position: absolute;
+}
+
+.input-icons {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.icon {
+  padding: 10px;
+  min-width: 40px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
 }
