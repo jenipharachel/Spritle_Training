@@ -42,8 +42,9 @@
     </div>
     <script>
       var users = [];
-      var rowCount = document.getElementsByTagName("tr").length;
+
       function AddData() {
+        var rowCount = document.getElementsByTagName("tr").length;
         const user = {
           rowid: rowCount,
           name: document.getElementById("name").value,
@@ -51,6 +52,7 @@
           email: document.getElementById("email").value,
           age: document.getElementById("age").value
         };
+        console.log(rowCount);
         users.push(user);
         console.log(users);
         var rows = "";
@@ -97,7 +99,7 @@
         // });
         console.log(users);
         var tableContent = document.getElementById("table_content");
-        tableContent.innerHTML = "";
+        tableContent.innerHTML = ""; //empty table and then dislay sorted data
         users.forEach(user => {
           var rows = "";
           rows +=
