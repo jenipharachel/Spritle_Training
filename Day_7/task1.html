@@ -2,8 +2,18 @@
 <html>
   <head>
     <title>Form Ajax</title>
+    <!-- <script
+      type="text/javascript"
+      charset="utf8"
+      src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"
+    ></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="./task1.js"></script>
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"
+    ></script> 
   </head>
   <body>
       <form id="inputform">
@@ -17,7 +27,13 @@
       <button id="getbtn" type="submit">Get User</button>
       <button id="postbtn" type="submit">Post User</button>
       <button id="showbtn" type="submit">List User</button>
-      
+      <table id="tab-data" border=2>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+          </tr>
+      </table>
   </body>
       
 </body>

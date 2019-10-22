@@ -4,7 +4,15 @@ $(document).ready(function() {
     $.getJSON(
       "https://spritle-fresher-training.herokuapp.com/users.json",
       function(data, status) {
-        console.log(data);
+        var table_data = "";
+        $.each(data, function(key, value) {
+          table_data += "<tr>";
+          table_data += "<td>" + value.name + "</td>";
+          table_data += "<td>" + value.age + "</td>";
+          table_data += "<td>" + value.email + "</td>";
+          table_data += "</tr>";
+        });
+        $("#tab-data").append(table_data);
       }
     );
   });
