@@ -16,5 +16,28 @@ exports.showSignin = (req, res) => {
     password: req.body.password
   });
 
+  User.findOne({ email: req.body.email }, (findErr, isThere) => {
+    if (findErr) {
+      console.log("error in finding", findErr);
+      res.send("error in finding");
+    } else if (isThere) {
+      console.log("email exists");
+      res.send("email already exists");
+    } else {
+      console.log("data does not exist");
+      user.save((err, success) => {
+        if (err) {
+          console.log("error in saving data", err);
+          res.send("error in saving");
+        } else {
+          console.log("data saved successfully", success);
+          res.render("signin");
+        }
+      });
+    }
+  });
+};
+
+exports.goSignin = (req, res) => {
   res.render("signin");
 };

@@ -2,8 +2,12 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const exphbs = require("express-handlebars");
 
 const app = express();
+
+app.engine("handlebars", exphbs());
+app.set("view engine", "handlebars");
 
 app.set("port", 3090);
 app.set("view engine", "pug");
@@ -24,6 +28,7 @@ mongoose.connection.on("error", err => {
 
 const indexController = require("./controllers/index");
 const signinController = require("./controllers/signin");
+const homeController = require("./controllers/home");
 
 app.listen(app.get("port"), () => {
   console.log("app is running");
@@ -31,4 +36,6 @@ app.listen(app.get("port"), () => {
 
 app.get("/", indexController.showIndex);
 app.post("/signin", indexController.showSignin);
+app.get("/signin", indexController.goSignin);
 app.post("/home", signinController.showHome);
+app.get("/home", homeController.showUserDetail);
