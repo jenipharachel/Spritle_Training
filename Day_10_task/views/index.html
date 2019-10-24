@@ -1,31 +1,77 @@
 <!DOCTYPE html>
-<head>
-    <title>Sign Up</title>
-</head>
-<body>
-    <h1>Sign Up Page</h1>
-    <p>Sign up the below form</p>
+    <head>
+        <title>Sign Up</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Sign Up Page</h1>
+        <p>Sign up the below form</p>
 
-    <form method="post" action="/signin"> 
-        
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" required></br>
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required></br>
-        <label for="age">Age:</label>
-        <input type="number" name="age" id="age" min="0" max="70" required></br>
-        <label for="phone">Phone:</label>
-        <input type="number" name="phone" id="phone" required></br>
-        <label for="gender">Gender:</label>
-        <input type="radio" name="gender" value="male" checked> Male
-        <input type="radio" name="gender" value="female"> Female
-        <input type="radio" name="gender" value="other"> Other</br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required></br>
-        <label for="confpassword">Confirm Password:</label>
-        <input type="password" name="confpassword" id="confpassword" required></br>
+        <form method="post" action="/signin"> 
+            <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required>
+            <!-- <span id='message'></span> -->
+            </div>
 
-        <button type="submit">Submit</button>
-    </form>
-</body>
+            <div>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+            <span id='email_message'></span>
+            <!-- <span class="error">Email address entered is invalid</span> -->
+            </div>
+
+            <div>
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age" min="0" max="70" required>
+            <!-- <span class="error">Please enter your age</span> -->
+            </div>
+
+            <div>
+            <label for="phone">Phone:</label>
+            <input type="number" name="phone" id="phone" required>
+            <!-- <span class="error">Please enter your contact number</span> -->
+            </div>
+            
+            <div>
+            <label for="gender">Gender:</label>
+            <input type="radio" name="gender" value="male" checked> Male
+            <input type="radio" name="gender" value="female"> Female
+            <input type="radio" name="gender" value="other"> Other
+            </div>
+
+            <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+            </div>
+            <div>
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" name="confirm_password" id="confirm_password" required>
+            <span id='password_message'></span>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+        <script>
+            $(document).ready(function() {
+                $('#email').on('input', function() {
+	                var input=$(this);
+	                var re = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+	                var is_email=re.test(input.val());
+	                if(is_email){
+                        $('#email_message').html('Valid Email').css('color', 'green');
+                    }
+	                else{
+                        $('#email_message').html('Invalid Email').css('color', 'red');
+                    }
+});
+                $('#password, #confirm_password').on('keyup', function () {
+                if ($('#password').val() == $('#confirm_password').val()) {
+                    $('#password_message').html('Matching').css('color', 'green');
+                } else 
+                    $('#password_message').html('Not Matching').css('color', 'red');
+                });
+            });
+        </script>
+    </body>
 </html>
