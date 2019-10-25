@@ -1,4 +1,5 @@
 const express = require("express");
+const session = require("express-session");
 const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -13,6 +14,7 @@ app.set("port", 3090);
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
+app.use(session({ secret: "ssshhhhh" }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -22,7 +24,7 @@ mongoose.set("useUnifiedTopology", true);
 mongoose.connect("mongodb://localhost:27017/nodetask");
 
 mongoose.connection.on("error", err => {
-  console.log("moongo error", err);
+  console.log("mongo error", err);
   process.exit();
 });
 
@@ -38,4 +40,4 @@ app.get("/", indexController.showIndex);
 app.post("/signin", indexController.showSignin);
 app.get("/signin", indexController.goSignin);
 app.post("/home", signinController.showHome);
-app.get("/home", homeController.showUserDetail);
+app.get("/userdetails", homeController.showUserDetail);
