@@ -14,9 +14,11 @@ app.set("port", 3090);
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
-app.use(session({ secret: "ssshhhhh" }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  session({ resave: false, saveUninitialized: false, secret: "ssshhhhh" })
+);
 
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useUnifiedTopology", true);
@@ -31,13 +33,20 @@ mongoose.connection.on("error", err => {
 const indexController = require("./controllers/index");
 const signinController = require("./controllers/signin");
 const homeController = require("./controllers/home");
+const usertableController = require("./controllers/userTable");
 
 app.listen(app.get("port"), () => {
   console.log("app is running");
 });
 
+var sess;
+
 app.get("/", indexController.showIndex);
 app.post("/signin", indexController.showSignin);
 app.get("/signin", indexController.goSignin);
 app.post("/home", signinController.showHome);
+app.get("/home", signinController.goHome);
 app.get("/userdetails", homeController.showUserDetail);
+app.get("/usertable", homeController.showTable);
+app.get("/usersdb", usertableController.showUsers);
+app.get("/logout", homeController.logOut);

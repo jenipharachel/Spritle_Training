@@ -8,7 +8,7 @@ exports.showHome = (req, res) => {
       res.send("error in finding");
     } else if (isThere) {
       if (isThere.password == req.body.password) {
-        console.log("email exists");
+        console.log("account exists");
         res.render("home", { username: isThere.name });
         // res.send("Welcome " + isThere.name);
       } else {
@@ -19,4 +19,14 @@ exports.showHome = (req, res) => {
       }
     }
   });
+};
+
+exports.goHome = (req, res) => {
+  sess = req.session;
+  console.log(session);
+  if (sess.email) {
+    res.render("home", { username: sess.name });
+  } else {
+    res.redirect("signin");
+  }
 };

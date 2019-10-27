@@ -1,11 +1,17 @@
 const User = require("../models/User");
 
 exports.showIndex = (req, res) => {
+  sess = req.session;
+  if (sess.email) {
+    return res.redirect("/home");
+  }
   res.render("index");
 };
 
 exports.showSignin = (req, res) => {
   console.log("requests content body", req.body);
+  sess = req.session;
+  sess.email = req.body.email;
 
   var user = new User({
     name: req.body.name,
@@ -22,7 +28,7 @@ exports.showSignin = (req, res) => {
       res.send("error in finding");
     } else if (isThere) {
       console.log("email exists");
-      res.send("email already exists");
+      res.send("email already exists, use another email");
     } else {
       console.log("data does not exist");
       user.save((err, success) => {

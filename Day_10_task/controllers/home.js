@@ -12,7 +12,21 @@ exports.showUserDetail = (req, res) => {
       res.json(isThere);
     } else {
       console.log(isThere);
-      res.send(null);
+      res.send(null); //to show user not found
     }
+  });
+};
+
+exports.showTable = (req, res) => {
+  console.log("usertable");
+  res.render("usertable");
+};
+
+exports.logOut = (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      return console.log(err);
+    }
+    res.redirect("/signin");
   });
 };

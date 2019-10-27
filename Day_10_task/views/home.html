@@ -3,9 +3,17 @@
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Welcome</title>
+    <style>
+        a {
+            padding-right: 20px;
+            float: right;
+        }
+    </style>
 </head>
 <body> 
-    <h1>Welcome {{username}} </h1>
+    <a href="/logout" >Logout</a>
+    <a href="/usertable">Users Database</a>
+    <h1>Welcome ${username} </h1>
     <h4>Enter the user email to get the user details</h4>
     <form>
         <input type="email" name="email" id="search" required>
