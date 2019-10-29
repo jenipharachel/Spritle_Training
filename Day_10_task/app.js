@@ -4,6 +4,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const exphbs = require("express-handlebars");
+var LocalStorage = require("node-localstorage").LocalStorage;
 
 const app = express();
 

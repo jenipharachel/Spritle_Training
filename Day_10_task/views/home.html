@@ -28,10 +28,16 @@
     </form>
    <script type="text/javascript">
     $(function(){
-        jQuery(window).load(function() {
+        if (typeof(Storage) !== "undefined") {
             localStorage.setItem('status','loggedIn') 
-            console.log(localStorage);
-        });
+        console.log(localStorage);
+        } else {
+            document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+        }
+        // $(window).load(function() {
+        //     localStorage.setItem('status','loggedIn') 
+        //     console.log(localStorage);
+        // });
         $('button').click(function(e){
             e.preventDefault();
             var email = $("#search").val();
