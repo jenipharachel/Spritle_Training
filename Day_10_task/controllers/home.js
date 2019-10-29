@@ -11,15 +11,26 @@ exports.showUserDetail = (req, res) => {
       console.log("user present", isThere);
       res.json(isThere);
     } else {
-      console.log(isThere);
+      console.log("User doesnt exist", isThere);
       res.send(null); //to show user not found
     }
   });
 };
 
 exports.showTable = (req, res) => {
-  console.log("usertable");
-  res.render("usertable");
+  sess = req.session;
+  // if (typeof localStorage === "undefined" || localStorage === null) {
+  //   var LocalStorage = require("node-localstorage").LocalStorage;
+  //   localStorage = new LocalStorage("./scratch");
+  // }
+  console.log(sess);
+  if (sess.email) {
+    res.render("usertable");
+    console.log("usertable");
+  } else {
+    res.redirect("signin");
+  }
+  // && localStorage.getItem("status") != null
 };
 
 exports.logOut = (req, res) => {

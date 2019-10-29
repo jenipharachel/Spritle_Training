@@ -6,7 +6,7 @@ exports.showUsers = (req, res) => {
       console.log("error in finding the data", err);
       res.send("error in finding the user");
     } else if (users) {
-      var userMap = {};
+      // var userMap = {};
       // users.forEach(function(user) {
       //   userMap[user._id] = user;
       // });

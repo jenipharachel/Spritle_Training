@@ -9,6 +9,10 @@ exports.showHome = (req, res) => {
     } else if (isThere) {
       if (isThere.password == req.body.password) {
         console.log("account exists");
+        sess = req.session;
+        sess.email = req.body.email;
+        sess.name = req.body.name;
+        console.log(sess);
         res.render("home", { username: isThere.name });
         // res.send("Welcome " + isThere.name);
       } else {
@@ -17,16 +21,23 @@ exports.showHome = (req, res) => {
         res.send("Incorrect Password");
         // res.redirect("/signin");
       }
+    } else {
+      console.log("user does not exist");
+      res.send(
+        "Email doesnt exist, create a new account or sign in with another email"
+      );
     }
   });
 };
 
 exports.goHome = (req, res) => {
   sess = req.session;
-  console.log(session);
+  console.log(sess);
   if (sess.email) {
     res.render("home", { username: sess.name });
   } else {
     res.redirect("signin");
   }
 };
+
+// && localStorage.getItem("status") != null

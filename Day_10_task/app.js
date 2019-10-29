@@ -40,7 +40,7 @@ app.listen(app.get("port"), () => {
 });
 
 var sess;
-
+// localStorage.setItem("session", JSON.stringify(sess));
 app.get("/", indexController.showIndex);
 app.post("/signin", indexController.showSignin);
 app.get("/signin", indexController.goSignin);
