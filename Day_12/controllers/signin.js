@@ -17,10 +17,16 @@ exports.showLanding = (req, res) => {
         sess.email = req.body.email;
         sess.name = req.body.name;
         console.log(sess);
-        if (isThere.email == "admin@gmail.com") {
+        if (isThere.admin == true) {
           res.render("usertable");
+          console.log(isThere);
         } else {
-          res.render("landing");
+          if (isThere.verified == true) {
+            res.render("bookdisplay");
+          } else {
+            console.log(isThere);
+            res.render("landing");
+          }
         }
         // res.send("Welcome " + isThere.name);
       } else {

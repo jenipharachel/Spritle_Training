@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <head>
-    <title>Sign In</title>
-    
-    <link
+  <title>Book Page</title>
+  <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
     />
@@ -24,23 +23,19 @@
 </head>
 <body>
         <a href="/logout" >Logout</a>
-        <a href="/book">Books</a>
-    <div class="container">
-            
-    <h3 align="center">User Database</h3><br /> 
-    <table id="data-table" class="table table-bordered">  
+       
+  <h1>Library</h1>
+    <div class="container"> 
+        <h3 align="center">Book Database</h3><br /> 
+        <table id="data-table" class="table table-bordered">  
         <thead>  
-        <tr>  
-            <th>Name</th>  
-            <th>Email</th>  
-            <th>Phone</th>
-            <th>Gender</th>
-            <th>Age</th>  
-            <th>Status</th>
-        </tr>  
+            <tr>  
+                <th>Book Name</th>  
+                <th>Author Name</th>  
+            </tr>  
         </thead>  
         <tbody></tbody>
-    </table>  
+        </table>  
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
@@ -50,35 +45,16 @@
       src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"
     ></script>
     <script type="text/javascript">
-    
-    function verify_user(event) {
-        $.ajax({
-            type:'POST',
-            url: '/usersdb?email='+event.data.email,
-            data: event.data.email
-        }).done(function(response){
-            window.location.replace('/landing');
-            });
-    }
         $(document).ready(function() {
             $("#data-table").DataTable({
                 // processing: true,
                 // serverSide: true,
                 ajax: {
-                    url: "/usersdb",
+                    url: "/booksdb",
                     method: "GET",
                     dataSrc: ""
                 },
-                columns: [{ data: "name" }, { data: "email" }, { data: "phone" }, { data: "gender"}, { data: "age"}, 
-                {
-                // name: "control",
-                // searchable: false,
-                // orderable: false,
-                defaultContent: "<button>Approve</button>",
-                createdCell: function(cell, cellData, rowData, rowIndex, colIndex) {
-                    $(cell).on("click", "button", rowData, verify_user);
-                }
-                }]
+                columns: [{ data: "bookname" }, { data: "authorname" }]
             });
         });
     </script>

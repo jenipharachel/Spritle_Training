@@ -12,7 +12,8 @@ exports.goSignin = (req, res) => {
     phone: req.body.phone,
     gender: req.body.gender,
     password: req.body.password,
-    verified: false
+    verified: false,
+    admin: false
   });
 
   User.findOne({ email: req.body.email }, (findErr, isThere) => {

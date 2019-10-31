@@ -18,6 +18,7 @@ app.use(
 
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useUnifiedTopology", true);
+mongoose.set("useFindAndModify", false);
 
 mongoose.connect("mongodb://localhost:27017/libtask");
 
@@ -45,5 +46,6 @@ app.get("/usersdb", adminController.showUsers);
 app.get("/book", adminController.goBooks);
 app.post("/addbook", adminController.addBooks);
 app.get("/booksdb", adminController.showBooks);
+app.post("/usersdb", adminController.verifyUser);
 app.get("/logout", adminController.logOut);
 // app.get("/book", adminController.showBooks);

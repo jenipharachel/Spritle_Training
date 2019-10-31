@@ -2,7 +2,7 @@ const User = require("../models/User");
 const Book = require("../models/Book");
 
 exports.showUsers = (req, res) => {
-  User.find({}, (err, users) => {
+  User.find({ admin: false }, (err, users) => {
     if (err) {
       console.log("error in finding the data", err);
       res.send("error in finding the user");
@@ -64,6 +64,23 @@ exports.showBooks = (req, res) => {
       res.json(books);
     }
   });
+};
+
+exports.verifyUser = (req, res) => {
+  console.log(req.query.email);
+  User.findOneAndUpdate(
+    { email: req.query.email },
+    { $set: { verified: true } },
+    (err, user) => {
+      if (err) {
+        console.log("error in finding the data", err);
+        res.send("error in finding the user");
+      } else if (user) {
+        console.log("users present", user);
+        // res.json(books);
+      }
+    }
+  );
 };
 
 exports.logOut = (req, res) => {

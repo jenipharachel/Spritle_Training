@@ -13,7 +13,8 @@ const userSchema = new mongoose.Schema({
   },
   gender: String,
   password: String,
-  verified: Boolean
+  verified: Boolean,
+  admin: Boolean
 });
 
 const User = mongoose.model("User", userSchema);
